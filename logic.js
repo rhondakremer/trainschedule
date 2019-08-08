@@ -23,6 +23,28 @@ $(document).ready(function() {
       firebase.initializeApp(firebaseConfig);
       var database = firebase.database();
 
+    database.ref().on("child_added", function(snapshot) {
+    console.log(snapshot.val());
+    var storedInfo = snapshot.val();
+    var trainNames = storedInfo.trainName;
+    var trainDestinations = storedInfo.trainDestination;
+    var trainFrequency = storedInfo.trainFrequency;
+    var trainTimes = storedInfo.trainTime;
+    
+   
+    /*$("#trainInfo").append("<td>" + trainNames);
+    $("#trainInfo").append("<td>" + trainDestinations);
+    $("#trainInfo").append("<td>" + trainFrequency);
+    $("#trainInfo").append("<td>" + "Next Arrival");
+    $("#trainInfo").append("<td>" + "Minutes Away");*/
+
+    $("#trainInfo").append("<tr><td>" + trainNames + "</td><td>" + trainDestinations + "</td><td>" +trainFrequency + "</td><td>" + "Next Arrival" + "</td><td>" + "Minutes Away" + "</td></tr>");
+
+    });
+
+
+
+
     $("#submitButton").click(function(event){
         event.preventDefault()
         //alert("you just clicked me!")
@@ -41,10 +63,9 @@ $(document).ready(function() {
             trainDestination: trainDestination,
             trainTime: trainTime,
             trainFrequency: trainFrequency
-        })
+        });
     });
 
     
     
 });
-
