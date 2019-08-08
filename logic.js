@@ -10,6 +10,18 @@
 $(document).ready(function() {
     console.log("I like big butts")
 
+    var firebaseConfig = {
+        apiKey: "AIzaSyDX6Pvg00T4oOWa2_4IzGKUE1Lxn450wA4",
+        authDomain: "it-s-train-time.firebaseapp.com",
+        databaseURL: "https://it-s-train-time.firebaseio.com",
+        projectId: "it-s-train-time",
+        storageBucket: "",
+        messagingSenderId: "666511407036",
+        appId: "1:666511407036:web:345b232ceb2588f2"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      var database = firebase.database();
 
     $("#submitButton").click(function(event){
         event.preventDefault()
@@ -23,23 +35,16 @@ $(document).ready(function() {
         console.log(trainTime);
         var trainFrequency = $("#trainFrequencyInput").val().trim();
         console.log(trainFrequency);
+
+        database.ref().push({
+            trainName: trainName,
+            trainDestination: trainDestination,
+            trainTime: trainTime,
+            trainFrequency: trainFrequency
+        })
     });
 
-    var firebaseConfig = {
-        apiKey: "AIzaSyDX6Pvg00T4oOWa2_4IzGKUE1Lxn450wA4",
-        authDomain: "it-s-train-time.firebaseapp.com",
-        databaseURL: "https://it-s-train-time.firebaseio.com",
-        projectId: "it-s-train-time",
-        storageBucket: "",
-        messagingSenderId: "666511407036",
-        appId: "1:666511407036:web:345b232ceb2588f2"
-      };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-      var database = firebase.database();
-      database.ref().set({
-        name: "Rhonda",
-        lastname: "Kremer"
-    })
+    
+    
 });
 
