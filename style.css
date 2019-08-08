@@ -1,9 +1,11 @@
 body {
-    background: palegreen;
+    background: url("./assets/images/train-1565302668931-8432.jpg") no-repeat center center fixed;
+    width: 100%;
 }
 
 #trainSchedule {
     text-align: center;
+    
 }
 #trainInfo {
     border: 1px solid black;
@@ -12,6 +14,7 @@ body {
     width: 80%;
     margin-top: 10px;
     margin-bottom: 20px;
+    background-color: rgba(245, 241, 18, 0.849);
 }
 
 th {
