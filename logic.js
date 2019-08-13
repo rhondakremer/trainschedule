@@ -1,12 +1,3 @@
-// form to submit train name, destination, first train time, and frequency in mins- on click preventdefault thing, captures information with .val and .trim, 
-// on submit, should go to firebase, form cleared
-// firebase event childadded goes to table console.log(childsnapshot.val.name, destination, etc)-- make var for childsnapshot.val.nam etc
-// var for time array, .split to split string to split time at colon 
-// moment.js for time math (moment max), .hours, .minutes, .max, 
-// var tMinutes, var tArrival- if statement when train has already passed- if maxmoment = traintime, show time. 
-
-//current time - first time, .dif, use modulus
-// firebase info should display when page loads
 $(document).ready(function() {
     console.log("I like big butts")
 
@@ -31,25 +22,14 @@ $(document).ready(function() {
     var trainFrequency = storedInfo.trainFrequency;
     var trainTimes = storedInfo.trainTime;
 
-   
-    
-    
     var startMoment = moment(trainTimes,"HH:mm");
     var currentMoment = moment();
-    
     var differenceInMinutes = currentMoment.diff(startMoment,"minutes");
-    
     var remainder = differenceInMinutes%trainFrequency;
-    
     var minutesToCompleteFrequency = trainFrequency-remainder;
-    
     var nextTrainTime = currentMoment.add(minutesToCompleteFrequency,"minutes").format("HH:mm");
-
     var minutesUntilArrival = trainFrequency - remainder;
        
-   
-
-
    
     /*$("#trainInfo").append("<td>" + trainNames);
     $("#trainInfo").append("<td>" + trainDestinations);
@@ -84,6 +64,11 @@ $(document).ready(function() {
             trainTime: trainTime,
             trainFrequency: trainFrequency
         });
+
+        $("#trainNameInput").val("");
+        $("#trainDestinationInput").val("")
+        $("#trainTimeInput").val("")
+        $("#trainFrequencyInput").val("")
     });
 
 

@@ -4,14 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>It's Train Time!</title>
+    <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Ranga|Underdog&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://momentjs.com/downloads/moment.js"></script>
 </head>
 <body>
 <div id="container">
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">All Aboard!</h1>
+            <p class="lead">Make your own train schedule! Add some trains and times and see when the next train arrives.</p>
+        </div>
+    </div>
+
 <div id="trainSchedule">
     <table id="trainInfo">
         <th>Name</th>
@@ -22,17 +32,27 @@
     </table>
 </div>
 
-
-<div id="formArea">
-    <form>
-        Name <input id="trainNameInput"><br>
-        Destination <input id="trainDestinationInput"><br>
-        First Train Time <input id="trainTimeInput"><br>
-        Frequency (mins) <input id="trainFrequencyInput"><br>
-        <button id='submitButton'>Submit</button>
-    </form>
+<form>
+    <div class="form-group">
+        <label for="trainName">Name</label>
+        <input type="name" class="form-control" id="trainNameInput" aria-describedby="emailHelp" placeholder="Train Name">
+    </div>
+    <div class="form-group">
+            <label for="trainName">Destination</label>
+            <input type="name" class="form-control" id="trainDestinationInput" aria-describedby="emailHelp" placeholder="Train Destination">
+    </div>
+    <div class="form-group">
+            <label for="trainName">First Train Time</label>
+            <input type="name" class="form-control" id="trainTimeInput" aria-describedby="emailHelp" placeholder="HH:MM">
+    </div>
+    <div class="form-group">
+            <label for="trainName">Frequency (mins)</label>
+            <input type="name" class="form-control" id="trainFrequencyInput" aria-describedby="emailHelp" placeholder="Minutes">
+    </div>
+    <button id='submitButton'>Submit</button>
+    </form>  
 </div>  
-    
+ 
 
 
 
