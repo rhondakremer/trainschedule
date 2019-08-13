@@ -34,16 +34,18 @@ $(document).ready(function() {
    
     
     
-        var startMoment = moment(trainTimes,"HH:mm");
-        var currentMoment = moment();
+    var startMoment = moment(trainTimes,"HH:mm");
+    var currentMoment = moment();
     
-        var differenceInMinutes = currentMoment.diff(startMoment,"minutes");
+    var differenceInMinutes = currentMoment.diff(startMoment,"minutes");
     
-        var remainder = differenceInMinutes%trainFrequency;
+    var remainder = differenceInMinutes%trainFrequency;
     
-        var minutesToCompleteFrequency = trainFrequency-remainder;
+    var minutesToCompleteFrequency = trainFrequency-remainder;
     
-        var nextTrainTime = currentMoment.add(minutesToCompleteFrequency,"minutes").format("HH:mm");
+    var nextTrainTime = currentMoment.add(minutesToCompleteFrequency,"minutes").format("HH:mm");
+
+    var minutesUntilArrival = trainFrequency - remainder;
        
    
 
@@ -55,7 +57,7 @@ $(document).ready(function() {
     $("#trainInfo").append("<td>" + "Next Arrival");
     $("#trainInfo").append("<td>" + "Minutes Away");*/
 
-    $("#trainInfo").append("<tr><td>" + trainNames + "</td><td>" + trainDestinations + "</td><td>" +trainFrequency + "</td><td>" + nextTrainTime + "</td><td>" + "Minutes Away" + "</td></tr>");
+    $("#trainInfo").append("<tr><td>" + trainNames + "</td><td>" + trainDestinations + "</td><td>" +trainFrequency + "</td><td>" + nextTrainTime + "</td><td>" + minutesUntilArrival + "</td></tr>");
 
     });
 
