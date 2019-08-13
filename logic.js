@@ -30,7 +30,24 @@ $(document).ready(function() {
     var trainDestinations = storedInfo.trainDestination;
     var trainFrequency = storedInfo.trainFrequency;
     var trainTimes = storedInfo.trainTime;
+
+   
     
+    
+        var startMoment = moment(trainTimes,"HH:mm");
+        var currentMoment = moment();
+    
+        var differenceInMinutes = currentMoment.diff(startMoment,"minutes");
+    
+        var remainder = differenceInMinutes%trainFrequency;
+    
+        var minutesToCompleteFrequency = trainFrequency-remainder;
+    
+        var nextTrainTime = currentMoment.add(minutesToCompleteFrequency,"minutes").format("HH:mm");
+       
+   
+
+
    
     /*$("#trainInfo").append("<td>" + trainNames);
     $("#trainInfo").append("<td>" + trainDestinations);
@@ -38,9 +55,10 @@ $(document).ready(function() {
     $("#trainInfo").append("<td>" + "Next Arrival");
     $("#trainInfo").append("<td>" + "Minutes Away");*/
 
-    $("#trainInfo").append("<tr><td>" + trainNames + "</td><td>" + trainDestinations + "</td><td>" +trainFrequency + "</td><td>" + "Next Arrival" + "</td><td>" + "Minutes Away" + "</td></tr>");
+    $("#trainInfo").append("<tr><td>" + trainNames + "</td><td>" + trainDestinations + "</td><td>" +trainFrequency + "</td><td>" + nextTrainTime + "</td><td>" + "Minutes Away" + "</td></tr>");
 
     });
+
 
 
 
@@ -50,13 +68,13 @@ $(document).ready(function() {
         //alert("you just clicked me!")
 
         var trainName = $("#trainNameInput").val().trim();
-        console.log(trainName)
+        //console.log(trainName)
         var trainDestination = $("#trainDestinationInput").val().trim();
-        console.log(trainDestination);
+        //console.log(trainDestination);
         var trainTime = $("#trainTimeInput").val().trim();
-        console.log(trainTime);
+        //console.log(trainTime);
         var trainFrequency = $("#trainFrequencyInput").val().trim();
-        console.log(trainFrequency);
+        //console.log(trainFrequency);
 
         database.ref().push({
             trainName: trainName,
@@ -66,6 +84,8 @@ $(document).ready(function() {
         });
     });
 
-    
+
+
+
     
 });
