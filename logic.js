@@ -55,20 +55,24 @@ $(document).ready(function() {
         //console.log(trainDestination);
         var trainTime = $("#trainTimeInput").val().trim();
         //console.log(trainTime);
-        var trainFrequency = $("#trainFrequencyInput").val().trim();
+        var trainFrequency = Number($("#trainFrequencyInput").val().trim());
         //console.log(trainFrequency);
-
-        database.ref().push({
-            trainName: trainName,
-            trainDestination: trainDestination,
-            trainTime: trainTime,
-            trainFrequency: trainFrequency
-        });
-
-        $("#trainNameInput").val("");
-        $("#trainDestinationInput").val("")
-        $("#trainTimeInput").val("")
-        $("#trainFrequencyInput").val("")
+        if (trainName && trainDestination && trainTime && trainFrequency) {
+            database.ref().push({
+                trainName: trainName,
+                trainDestination: trainDestination,
+                trainTime: trainTime,
+                trainFrequency: trainFrequency
+            });
+            $("#trainNameInput").val("");
+            $("#trainDestinationInput").val("")
+            $("#trainTimeInput").val("")
+            $("#trainFrequencyInput").val("")
+        }
+        else {
+            alert("Please enter all valid values!")
+        }
+        
     });
 
 
